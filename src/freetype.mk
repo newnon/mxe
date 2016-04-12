@@ -8,7 +8,7 @@ $(PKG)_CHECKSUM := 371e707aa522acf5b15ce93f11183c725b8ed1ee8546d7b3af54986304586
 $(PKG)_SUBDIR   := freetype-$($(PKG)_VERSION)
 $(PKG)_FILE     := freetype-$($(PKG)_VERSION).tar.bz2
 $(PKG)_URL      := http://$(SOURCEFORGE_MIRROR)/project/freetype/freetype2/$(shell echo '$($(PKG)_VERSION)' | cut -d . -f 1,2,3)/$($(PKG)_FILE)
-$(PKG)_DEPS     := gcc bzip2 harfbuzz libpng zlib
+$(PKG)_DEPS     := gcc bzip2 libpng zlib
 
 define $(PKG)_UPDATE
     $(WGET) -q -O- 'http://sourceforge.net/projects/freetype/files/freetype2/' | \
@@ -20,6 +20,7 @@ endef
 define $(PKG)_BUILD_COMMON
     cd '$(1)' && GNUMAKE=$(MAKE) ./configure \
         $(MXE_CONFIGURE_OPTS) \
+        --without-harfbuzz \
         LIBPNG_CFLAGS="`$(TARGET)-pkg-config libpng --cflags`" \
         LIBPNG_LDFLAGS="`$(TARGET)-pkg-config libpng --libs`" \
         FT2_EXTRA_LIBS="`$(TARGET)-pkg-config libpng --libs`" \

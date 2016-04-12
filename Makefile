@@ -41,7 +41,7 @@ WGET       := wget --no-check-certificate \
 REQUIREMENTS := autoconf automake autopoint bash bison bzip2 flex \
                 $(BUILD_CC) $(BUILD_CXX) gperf intltoolize $(LIBTOOL) \
                 $(LIBTOOLIZE) $(MAKE) openssl $(PATCH) $(PERL) python \
-                ruby scons $(SED) $(SORT) unzip wget xz 7za gdk-pixbuf-csource
+                ruby scons $(SED) $(SORT) unzip wget xz 7za
 
 PREFIX     := $(PWD)/usr
 LOG_DIR    := $(PWD)/log

@@ -3,8 +3,8 @@
 PKG             := libwebsockets
 $(PKG)_WEBSITE  := https://libwebsockets.org/
 $(PKG)_IGNORE   :=
-$(PKG)_VERSION  := 2.0.2
-$(PKG)_CHECKSUM := 43865604debd06686ac4d8d0783976c4e10dd519ccd5c94e1b53878ec6178a59
+$(PKG)_VERSION  := 2.3.0
+$(PKG)_CHECKSUM := f08a8233ca1837640b72b1790cce741ce4b0feaaa6b408fe28a303cbf0408fa1
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.gz
 $(PKG)_URL      := https://github.com/warmcat/libwebsockets/archive/v$($(PKG)_VERSION).tar.gz

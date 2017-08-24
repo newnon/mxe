@@ -2,11 +2,10 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 6661f8b..73d098b 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -636,14 +636,6 @@ if (LWS_WITH_STATIC)
- 				${HDR_PUBLIC}
+@@ -772,13 +772,6 @@ if (LWS_WITH_STATIC)
  				${SOURCES})
  	list(APPEND LWS_LIBRARIES websockets)
--
+ 
 -	if (WIN32)
 -		# Windows uses the same .lib ending for static libraries and shared
 -		# library linker files, so rename the static library.
@@ -14,9 +13,11 @@ index 6661f8b..73d098b 100644
 -			PROPERTIES
 -			OUTPUT_NAME websockets_static)
 -	endif()
- endif()
- 
- if (LWS_WITH_SHARED)
+ 	add_custom_command(
+ 		      TARGET websockets
+ 		      COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/lib/libwebsockets.h
+
+
 diff --git a/cmake/LibwebsocketsConfig.cmake.in b/cmake/LibwebsocketsConfig.cmake.in
 index bea82b5..6973fbf 100644
 --- a/cmake/LibwebsocketsConfig.cmake.in

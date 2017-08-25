@@ -17,7 +17,10 @@ endef
 define $(PKG)_BUILD
     cd '$(1)' && '$(TARGET)-cmake' \
         -DLWS_WITHOUT_TESTAPPS=ON \
-        -DLWS_USE_EXTERNAL_ZLIB=ON
+        -DLWS_USE_EXTERNAL_ZLIB=ON \
+        $(if $(BUILD_STATIC), \
+            -DLWS_WITH_STATIC=YES -DLWS_WITH_SHARED=NO , \
+            -DLWS_WITH_STATIC=NO -DLWS_WITH_SHARED=YES )
     $(MAKE) -C '$(1)' -j $(JOBS)
     $(MAKE) -C '$(1)' install
 endef
